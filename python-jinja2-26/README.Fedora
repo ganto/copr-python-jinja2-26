@@ -1,0 +1,12 @@
+This is a package of the Jinja2-2.6.X series for EPEL6. It is designed
+to be parallel-installable with the version of Sphinx that ships with
+RHEL6.
+
+In order to import the module, you have to modify sys.path as such:
+
+>>> import sys
+>>> sys.path.insert(0, '/usr/lib/python2.6/site-packages/Jinja2-2.6-py2.6.egg')
+>>> import jinja2
+
+For more details, see
+https://fedoraproject.org/wiki/Packaging:Python_Eggs#Multiple_Versions
