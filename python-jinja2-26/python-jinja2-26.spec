@@ -5,30 +5,25 @@
 %global with_docs 1
 
 Name:		python-jinja2-26
-Version:	2.6
-Release:	3%{?dist}
+Version:	2.7.1
+Release:	1%{?dist}
 Summary:	General purpose template engine
 Group:		Development/Languages
 License:	BSD
 URL:		http://jinja.pocoo.org/
 Source0:	http://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 Source1:	README.Fedora
-# This patch consists of two upstream patches merged and rebased
-# (the first upstream patch introduced CVE-2014-0012 and the second fixed it)
-# https://github.com/mitsuhiko/jinja2/commit/acb672b6a179567632e032f547582f30fa2f4aa7
-# https://github.com/mitsuhiko/jinja2/pull/296/files
-Patch0:		Jinja2-2.6-fix-CVE-2014-1402.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:	noarch
 BuildRequires:	python-devel
 BuildRequires:	python-setuptools
 BuildRequires:	python-markupsafe
+BuildRequires:	pytest
 %if 0%{?with_docs}
 BuildRequires:	python-sphinx10
 %endif # with_docs
 Requires:	python-babel >= 0.8
 Requires:	python-markupsafe
-BuildRequires:	python-setuptools
 
 
 %description
@@ -45,7 +40,6 @@ environments.
 
 %prep
 %setup -q -n Jinja2-%{version}
-%patch0 -p0
 cp -p %{SOURCE1} .
 
 # cleanup
@@ -96,7 +90,6 @@ make test
 %doc ext
 %doc examples
 %{python_sitelib}/*
-%exclude %{python_sitelib}/*/jinja2/_debugsupport.c
 
 
 %changelog
