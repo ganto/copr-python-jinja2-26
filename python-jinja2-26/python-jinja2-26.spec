@@ -93,6 +93,9 @@ make test
 
 
 %changelog
+* Wed Jan 31 2018 Reto Gantenbein <reto.gantenbein@linuxmonk.ch> 2.7.1-1
+- Update to 2.7.1.
+
 * Fri Jun 13 2014 Thomas Moschny <thomas.moschny@gmx.de> - 2.6-3
 - Fix CVE-2014-1402 (using patch from RHSA-2014:0748).
 
