@@ -97,6 +97,10 @@ make test
 
 
 %changelog
+* Thu Feb 01 2018 Reto Gantenbein <reto.gantenbein@linuxmonk.ch> 2.7.2-1
+- Update to 2.7.2
+- Fix CVE-2014-0012
+
 * Wed Jan 31 2018 Reto Gantenbein <reto.gantenbein@linuxmonk.ch> 2.7.1-1
 - Update to 2.7.1.
 
