@@ -5,14 +5,17 @@
 %global with_docs 1
 
 Name:		python-jinja2-26
-Version:	2.7.1
+Version:	2.7.2
 Release:	1%{?dist}
 Summary:	General purpose template engine
 Group:		Development/Languages
 License:	BSD
 URL:		http://jinja.pocoo.org/
-Source0:	http://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
+Source0:	https://pypi.python.org/packages/source/J/Jinja2/Jinja2-%{version}.tar.gz
 Source1:	README.Fedora
+# Patch for CVE-2014-0012, see https://bugzilla.redhat.com/show_bug.cgi?id=1051421
+# for discussion (not yet sent upstream)
+Patch0:		python-jinja2-fix-CVE-2014-0012.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:	noarch
 BuildRequires:	python-devel
@@ -40,6 +43,7 @@ environments.
 
 %prep
 %setup -q -n Jinja2-%{version}
+%patch0 -p1
 cp -p %{SOURCE1} .
 
 # cleanup
